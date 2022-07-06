@@ -6,6 +6,9 @@ import pickle
 app=Flask(__name__)
 model = pickle.load(open('bagging.pkl', 'rb'))
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/',methods=['GET','POST'])
 def predict():
